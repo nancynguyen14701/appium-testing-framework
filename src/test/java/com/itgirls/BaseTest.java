@@ -9,6 +9,7 @@ import org.testng.annotations.*;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class BaseTest {
     AppiumDriverLocalService service;
@@ -24,6 +25,7 @@ public class BaseTest {
         options.setApp("/Users/itgirls1407/Documents/Software Engineering/Automation/Demo FW/appium-testing-framework/src/test/resources/ApiDemos-debug.apk");
         try {
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
